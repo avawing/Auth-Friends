@@ -1,6 +1,10 @@
 import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
+export const POST_FRIEND_START = "POST_FRIEND_START";
+export const POST_FRIEND_SUCCESS = "POST_FRIEND_SUCCESS";
+export const POST_FRIEND_FAIL = "POST_FRIEND_FAIL";
+
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
@@ -37,3 +41,15 @@ export const fetchFriends = () => (dispatch) => {
       });
     });
 };
+
+export const postFriend = (newFriend) => (dispatch) => {
+  dispatch({type: POST_FRIEND_START})
+  axiosWithAuth()
+  .post('http://localhost:5000/api/friends', newFriend)
+  .then(res => {
+    dispatch({type: POST_FRIEND_SUCCESS, payload: res.data})
+  })
+  .catch(e => {
+    dispatch({type: POST_FRIEND_FAIL, payload: `You're still in bed at ten? ${e}`})
+  })
+}

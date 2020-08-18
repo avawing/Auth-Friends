@@ -2,6 +2,9 @@ const {
   FETCH_FRIENDS_START,
   FETCH_FRIENDS_SUCCESS,
   FETCH_FRIENDS_FAIL,
+  POST_FRIEND_START,
+  POST_FRIEND_SUCCESS,
+  POST_FRIEND_FAIL,
 } = require("../actions");
 
 const initialState = {
@@ -21,9 +24,22 @@ function friendReducer(state = initialState, action) {
     case FETCH_FRIENDS_FAIL:
       return { ...state, isLoading: false, errors: action.payload };
 
+    case POST_FRIEND_START:
+      return { ...state, isLoading: true };
+
+    case POST_FRIEND_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        friends: [...state.friends, action.payload],
+      };
+
+    case POST_FRIEND_FAIL:
+      return { ...state, isLoading: false, errors: action.payload };
+
     default:
       return state;
   }
 }
 
-export default friendReducer
+export default friendReducer;
