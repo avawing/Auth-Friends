@@ -10,5 +10,5 @@ export const axiosWithAuth =() => {
     });
 };
 
-axiosWithAuth().get('endpoint/path/here').then(data => console.log(res.data));
+axiosWithAuth().get('/api/login').then(data => console.log(res.data));
 

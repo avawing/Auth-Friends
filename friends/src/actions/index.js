@@ -11,14 +11,16 @@ export const FETCH_FRIENDS_FAIL = "FETCH_FRIENDS_FAIL"
 export const login = (userCredentials) => (dispatch) => {
     dispatch({type: LOGIN_REQUEST})
     axios
-    .post('/api/login', userCredentials)
+    .post('http://localhost:5000/api/login', userCredentials)
       .then(res => {
-        localStorage.setItem('token', res.data.token);
-        //props.history.push('/dashboard');
+          console.log(res)
+        localStorage.setItem('token', res.data.payload);
+        
         dispatch({type: LOGIN_SUCCESS})
         }
       )
       .catch(e => {
+          console.log(e)
           dispatch({type: LOGIN_FAILURE, payload: e})
       })
   }

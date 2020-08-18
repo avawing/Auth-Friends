@@ -4,7 +4,8 @@ import {login} from '../actions'
 import {connect} from 'react-redux'
 
 const SignInForm = (props) => {
-  const [credentials, setCredentials] = useState({});
+  const emptyForm = {username: '', password: ''}
+  const [credentials, setCredentials] = useState(emptyForm);
 
 
   const handleChange = e => {
@@ -16,7 +17,8 @@ const SignInForm = (props) => {
 
 const authorize = e => {
   e.preventDefault();
-  props.login(credentials)  
+  props.login(credentials) 
+  props.history.push('/dashboard'); 
 }
 
 
