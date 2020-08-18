@@ -2,7 +2,7 @@ import React from 'react'
 
 function Dashboard(){
     return(
-        <p>This is some text</p>
+        <p>This is some very private text</p>
     )
 }
 
