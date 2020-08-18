@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     }
 }
 function FriendsList(props){
-    console.log('these are props', props)
+    props.fetchFriends()
 
     useEffect(()=>{
         props.fetchFriends()
