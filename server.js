@@ -41,7 +41,7 @@ let friends = [
   },
   {
     id: 6,
-    name: 'Phoebe Buffay-Hannigan',
+    name: 'Princess Consuela Banana Hammock',
     age: 30,
     email: 'phoebe@friends.com'
   }
