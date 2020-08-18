@@ -21,7 +21,7 @@ function FriendsList(props){
         <div>
         <h1>List of Friends!</h1>
         {props.isLoading ? <Spinner color = "warning" /> : null }
-        {props.friends ? props.friends.map(friend => <Friend key = {friend.id} friend = {friend}/>) : null}
+        {props.friends.length ? props.friends.map(friend => <Friend key = {friend.id} friend = {friend}/>) : null}
         {console.log(props.friends)}
         
         </div>
