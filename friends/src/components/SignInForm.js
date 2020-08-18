@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {login} from '../actions'
+import {connect} from 'react-redux'
 
 const SignInForm = (props) => {
   const [credentials, setCredentials] = useState({});
@@ -15,7 +16,7 @@ const SignInForm = (props) => {
 
 const authorize = e => {
   e.preventDefault();
-  login(credentials)  
+  props.login(credentials)  
 }
 
 
@@ -38,4 +39,4 @@ const authorize = e => {
   );
 }
 
-export default SignInForm;
+export default connect(null, {login})(SignInForm)

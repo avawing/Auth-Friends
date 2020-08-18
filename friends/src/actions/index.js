@@ -8,7 +8,7 @@ export const FETCH_FRIENDS_SUCCESS = "FETCH_FRIENDS_SUCCESS"
 export const FETCH_FRIENDS_START = "FETCH_FRIENDS_START"
 export const FETCH_FRIENDS_FAIL = "FETCH_FRIENDS_FAIL"
 
-export const login = (userCredentials) => {
+export const login = (userCredentials) => (dispatch) => {
     dispatch({type: LOGIN_REQUEST})
     axios
     .post('endpoint/here', userCredentials)
@@ -23,7 +23,7 @@ export const login = (userCredentials) => {
       })
   }
 
-  export const fetchFriends = () => {
+  export const fetchFriends =() => (dispatch) => {
       dispatch({type: FETCH_FRIENDS_START})
       axios
       .get('endpoint/here')
