@@ -12,11 +12,3 @@ export const axiosWithAuth =() => {
 
 axiosWithAuth().get('endpoint/path/here').then(data => console.log(res.data));
 
-export const login = () => {
-    axios.post('endpoint/here', userCredentials)
-      .then(res => {
-        localStorage.setItem('token', res.data.token);
-        props.history.push('/dashboard');
-        }
-      )
-  }
