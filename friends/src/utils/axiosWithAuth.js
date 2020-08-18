@@ -9,6 +9,3 @@ export const axiosWithAuth =() => {
         },
     });
 };
-
-axiosWithAuth().get('/api/login').then(data => console.log(res.data));
-
