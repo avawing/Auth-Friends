@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import SignInForm from './SignInForm';
+
 
 const NavBar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -15,7 +15,7 @@ const NavBar = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-            <SignInForm />
+            This is an item
             </NavItem>
             <NavItem>
             </NavItem>
