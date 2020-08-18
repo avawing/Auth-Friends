@@ -27,7 +27,7 @@ const authorize = e => {
         <Input type="text"
             name="username"
             value={credentials.username}
-            onChange={this.handleChange} placeholder="badassusername" />
+            onChange={handleChange} placeholder="badassusername" />
       </FormGroup>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Label for="examplePassword" className="mr-sm-2">Password</Label>

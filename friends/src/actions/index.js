@@ -11,7 +11,7 @@ export const FETCH_FRIENDS_FAIL = "FETCH_FRIENDS_FAIL"
 export const login = (userCredentials) => (dispatch) => {
     dispatch({type: LOGIN_REQUEST})
     axios
-    .post('endpoint/here', userCredentials)
+    .post('/api/login', userCredentials)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         //props.history.push('/dashboard');
@@ -26,7 +26,7 @@ export const login = (userCredentials) => (dispatch) => {
   export const fetchFriends =() => (dispatch) => {
       dispatch({type: FETCH_FRIENDS_START})
       axios
-      .get('endpoint/here')
+      .get('/api/friends')
       .then(res => {
           dispatch({type: FETCH_FRIENDS_SUCCESS, payload: res.data})
       })
