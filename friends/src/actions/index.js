@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -13,9 +14,7 @@ export const login = (userCredentials) => (dispatch) => {
   axios
     .post("http://localhost:5000/api/login", userCredentials)
     .then((res) => {
-      console.log(res);
       localStorage.setItem("token", res.data.payload);
-
       dispatch({ type: LOGIN_SUCCESS });
     })
     .catch((e) => {
@@ -26,8 +25,8 @@ export const login = (userCredentials) => (dispatch) => {
 
 export const fetchFriends = () => (dispatch) => {
   dispatch({ type: FETCH_FRIENDS_START });
-  axios
-    .get("/api/friends")
+  axiosWithAuth()
+    .get("http://localhost:5000/api/friends")
     .then((res) => {
       dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: res.data });
     })

@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Friend from './Friend'
+import { Spinner } from 'reactstrap';
+import {fetchFriends} from '../actions'
+import {connect} from 'react-redux'
 
-function FriendsList(){
+const mapStateToProps = (state) => {
+    console.log('this is state:', state)
+    return{
+        isLoading: state.friendReducer.isLoading,
+        friends: state.friendReducer.friends,
+    }
+}
+function FriendsList(props){
+    console.log('these are props', props)
+
+    useEffect(()=>{
+        props.fetchFriends()
+    },[])
     return(
+        <div>
         <h1>List of Friends!</h1>
+        {props.isLoading ? <Spinner color = "warning" /> : null }
+        {props.friends ? props.friends.map(friend => <Friend key = {friend.id} friend = {friend}/>) : null}
+        {console.log(props.friends)}
+        
+        </div>
+
     )
 }
-export default FriendsList
+export default connect(mapStateToProps, {fetchFriends})(FriendsList)
+
+//mapstatetoprops
+//connect fetchFriends
+//make ternary
