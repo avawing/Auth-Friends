@@ -25,3 +25,5 @@ function friendReducer(state = initialState, action) {
       return state;
   }
 }
+
+export default friendReducer

@@ -14,7 +14,7 @@ export const login = (userCredentials) => {
     .post('endpoint/here', userCredentials)
       .then(res => {
         localStorage.setItem('token', res.data.token);
-        props.history.push('/dashboard');
+        //props.history.push('/dashboard');
         dispatch({type: LOGIN_SUCCESS})
         }
       )

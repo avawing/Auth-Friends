@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 import friendReducer from './friendReducer'
-import loginReducer from './loginReducer'
+import LoginReducer from './loginReducer'
 
-export const rootReducer = combineReducers({friendReducer, loginReducer})
+export const rootReducer = combineReducers({friendReducer, LoginReducer})
 
